@@ -1,0 +1,55 @@
+
+min 14:02
+python manage.py runserver => para correr el servidor
+celery -A celery_example worker => para correr el programa 
+celery -A celery_example worker -l info
+
+from notifications.tasks import sum
+python manage.py shell => para correr tarea en shell
+from notifications.tasks import sum
+
+pip install django-celery-results
+python manage.py migrate => nuevamente ya que asi remove tasks results hidden
+ademas de agregar django-celery-results en notification (settings)
+
+python manage.py inspectdb => show all the models
+
+Se agrega las siguientes lineas en setting
+CELERY_RESULT_BACKEND='django-db'
+CELERY_CACHE_BACKEND='django-cache'
+PAra ver el estado de la consulta
+
+
+### Documento Word
+
+python manage.py startapp notifications => comenzar un nueva app
+
+1)	“django-admin.py startproject src”. Para comenzar haciendo la carpeta de configuración
+2)	Para el proyecto se debe crear base de datos, q por omision en django funciona con SQL.
+3)	Para crear base de datos. “python manage.py migrate”
+4)	Django tiene un servidor de prueba, para turn on se debe escribir “python manage.py runserver”
+5)	Una vez iniciado el servidor, da el ip y puerto.
+6)	Crear primera vista y confgurar el URL
+7)	Se arregla el 
+8)	Peticion => Request, crea objeto HTTP Request, asociado a la función vista
+9)	Respuesta => HTTPResponse
+10)	url.py genera listado de URL a ser vistas, se genera dentro de la tupla. Aquí se generan las rutas
+
+
+Celery
+django-admin.py startproject django_email_celery  Para crear el projecto
+python manage.py startapp example  Para crear carpeta example
+python manage.py runserver [en la misma carpeta manager]
+
+
+
+El puesto 19960 esta ocupado, por lo que se cambiara de puerto
+Para esto se ocupo netstat -a -n -o |find “54”
+Y se confirmo con Putty, opción Telnet, localhost, puerto 19960
+ 
+
+ 
+Para corrrer Celery en cmd de la carpeta
+celery -A django_email_celery worker -l info
+/usr/local/bin
+The celery command is under the ~/.local/bin Add the ~/.local/bin to env variable(/etc/profile) and then the problem will be solved.
