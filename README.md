@@ -11,7 +11,9 @@ Crear el archivo "celery.py" segun code y layout indicado en la pagina "First St
 
 Modificar el archivo __init__ segun lo idnicado en "First Step Celery Django"
 
+## Para hacer correr el codigo
 cd Desktop/Celery-Vim/my_celery
+/home/ubuntu/.local/bin/celery -A my_celery worker -l info
 /home/ngempin/.local/bin/celery -A my_celery worker -l info
 python manage.py shell
 
