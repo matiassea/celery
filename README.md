@@ -3,9 +3,9 @@ django-admin start "NAME_PROJECT"
 
 ingresar a la carpeta "NAME_PROJECT"
 
+## Para comenzar hacer el proyecto
+
 python manage.py migrate
-
-
 
 Crear el archivo "celery.py" segun code y layout indicado en la pagina "First Step Celery Django"
 
@@ -19,22 +19,27 @@ cd Desktop/Celery-Vim/my_celery
 
 /home/ngempin/.local/bin/celery -A my_celery worker -l info
 
+## Para correr en forma manual
 python manage.py shell
 
+## Para adjuntar el broker
 Modificar el archivo "Settings" indicando CELERY_BROKER_URL. En mi caso Redis
 
+## Para crear la app
 python manage.py startapp "APP" => para crear la app
 
 Crear archivo "Tasks.py" dentro de la carpeta "APP"
 
 En archivo "Settings.py" indicar en notificaciones la carpeta "APP"
 
+## Agregar beat y results
 pip install django_celery_beat, agregar en archivo de "Settings" en menu INSTALLED_APPS.
 volver a ejecutar el comando python migrate.py migrate
 
 pip install django-celery-results, agregar en archivo de "Settings" en menu INSTALLED_APPS.
 volver a ejecutar el comando python migrate.py migrate
 
+## Comandos para activar celery
 python manage.py shell => para hacer pruebas con las tareas desde la consola de Python
 
 python manage.py runserver => para hacer correr el servidor
@@ -71,25 +76,30 @@ Monitoreo de las operaciones
 /home/ngempin/.local/bin/celery -A my_celery inspect active
 
 Simple
+```
 from robots.tasks import get_rand
 result=get_rand.delay()
+```
+
 result
+
 result.get()
 
 Chain
+```
 from celery import chain
 from robots.tasks import sum
 res=chain(sum.s(4,2),sum.s(5),sum.s(21))()
 res.get()
 res.parent.get()
 res.parent.parent.get()
+```
 
-
-
+```
 result=sum.delay(2,3)
 result
 result.get()
-
+```
 
 
 
