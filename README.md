@@ -48,8 +48,9 @@ pip install django-celery-results, indicar en notificaciones la carpeta "APP". E
 python manage.py migrate, ejecutar python manage.py inspectdb y ver los cambios. 
 python manage.py inspectdb => para revisar el avance de las confirguraciones
 
-Colocar en la carpeta de Settings
+## Colocar en la carpeta de Settings
 CELERY_BROKER_URL = 'redis://:pc287beea8ef0cfa90c119ab32ee685c2bd8f85c4414634dc511b5bcc5e13dbb0@ec2-52-55-138-195.compute-1.amazonaws.com:29239'  
+Segun lo que diga REDIS_URL, colocar en CELERY_BROKER_URL
 
 CELERY_RESULT_BACKEND='django-db'                                                                                                                        
 CELERY_CACHE_BACKEND='django-cache'
