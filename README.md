@@ -66,25 +66,22 @@ Para controlar el beat, se ejecuta este comando
 /home/ngempin/.local/bin/celery -A my_celery beat -l info
 Anteriormente en setting debe estar activada esta opcion de django_celery_beat
 
-Agregar otro usuario mas
+## Agregar otro usuario mas
 /home/ngempin/.local/bin/celery -A my_celery worker -n pico@pico.com
 
-Monitoreo de las operaciones
+## Monitoreo de las operaciones
 /home/ngempin/.local/bin/celery -A my_celery status
-
-
-
 /home/ngempin/.local/bin/celery -A my_celery inspect active
+
+## Para correr procesos con shell
 
 Simple
 ```
 from robots.tasks import get_rand
 result=get_rand.delay()
-```
-
 result
-
 result.get()
+```
 
 Chain
 ```
